@@ -30,5 +30,3 @@ def http_auth_encode(password)
   hash = `htpasswd -nbB user #{Shellwords.escape(password)} 2>/dev/null`.chomp.split(':').last
   $?.exitstatus == 0 ? hash : "(htpasswd not available, or version doesn't support bcrypt)"
 end
-
-def mydb
