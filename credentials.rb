@@ -14,11 +14,11 @@ end
 post '/encode' do
   password = params[:password]
   hashes = {
-    'MySQL'     => mysql_encode(params[:password]),
-    'Linux'     => linux_encode(params[:password]),
-    'HTTP Auth' => http_auth_encode(params[:password]),
+    'mysql' => mysql_encode(params[:password]),
+    'linux' => linux_encode(params[:password]),
+    'http'  => http_auth_encode(params[:password]),
   }
-  erb :encode, :locals => { hashes: hashes }
+  erb :encoded, :locals => { hashes: hashes }
 end
 
 # Encoders
