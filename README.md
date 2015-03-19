@@ -1,13 +1,13 @@
 # credentials\_app
 
-Lets users transform generate their password hashes.
+Lets users generate their password hashes.
 
 It's not integrated into anything yet. This is meant to be a temporary solution
-until we have time to solve authentication in a way that makes sense for all teams.
+until we have time to solve authentication in a way that makes sense for everyone.
 
 ## Dependencies
 
-System
+System (Ubuntu is assumed)
 
 - Ruby 2+
 - `whois` package for mkpasswd (Linux passwords)
