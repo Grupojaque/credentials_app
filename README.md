@@ -23,5 +23,12 @@ bundle install
 ## Run the app
 
 ```bash
-bundle exec rackup config.ru
+bundle exec rackup config.ru # port 9292
+# or
+bundle exec rackup config.ru -p 3000 # port 3000
 ```
+
+## Development
+
+This is a simple Sinatra app (a small Ruby web framework). Learn more about it
+[here](http://www.sinatrarb.com/intro.html).
