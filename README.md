@@ -22,13 +22,18 @@ bundle install
 
 ## Run the app
 
+At its simplest:
+
 ```bash
-bundle exec rackup config.ru # port 9292
-# or
-bundle exec rackup config.ru -p 3000 # port 3000
+bundle exec ruby credentials.rb
 ```
 
-## Development
+Specify the my.cnf file to use:
 
-This is a simple Sinatra app (a small Ruby web framework). Learn more about it
-[here](http://www.sinatrarb.com/intro.html).
+```bash
+MYCNF=/etc/credentials_app/my.cnf bundle exec ruby credentials.rb
+```
+
+This is a simple Sinatra app (a small Ruby web framework).
+Learn more about Sinatra [here](http://www.sinatrarb.com/intro.html).
+Additional command line flags are supported by Sinatra (port, bind address, etc.)

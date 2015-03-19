@@ -44,7 +44,8 @@ end
 def mysql
   return @mysql if @mysql
 
-  myconfig = Pathname.new('~/.my.cnf').expand_path
+  config_file = ENV['MYCNF'] || '~/.my.cnf'
+  myconfig = Pathname.new(config_file).expand_path
   if myconfig.exist?
     @mysql = Mysql2::Client.new(:default_file => myconfig.to_s)
   else
