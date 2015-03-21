@@ -16,7 +16,11 @@ post '/encode' do
 end
 
 get '/status' do
-  JSON.pretty_generate encode('password')
+  hashes = encode('password')
+  if hashes.detect { |_, hash| '(' == hash[0] }
+    status 500
+  end
+  JSON.pretty_generate hashes
 end
 
 def encode(password)
