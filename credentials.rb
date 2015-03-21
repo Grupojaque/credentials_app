@@ -12,13 +12,19 @@ get '/' do
 end
 
 post '/encode' do
-  password = params[:password]
-  hashes = {
-    'mysql' => mysql_encode(params[:password]),
-    'linux' => linux_encode(params[:password]),
-    'http'  => http_auth_encode(params[:password]),
+  erb :encoded, :locals => { hashes: encode(params[:password]) }
+end
+
+get '/status' do
+  JSON.pretty_generate encode('password')
+end
+
+def encode(password)
+  {
+    'mysql' => mysql_encode(password),
+    'linux' => linux_encode(password),
+    'http'  => http_auth_encode(password),
   }
-  erb :encoded, :locals => { hashes: hashes }
 end
 
 # Encoders
