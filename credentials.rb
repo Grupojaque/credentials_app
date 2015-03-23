@@ -45,7 +45,8 @@ rescue Errno::ENOENT # Only failed this way once (on OSX). Not sure why.
 end
 
 def http_auth_encode(password)
-  hash = `htpasswd -nbB user #{Shellwords.escape(password)} 2>/dev/null`.chomp.split(':').last
+  hash = `htpasswd -nbB user #{Shellwords.escape(password)} 2>/dev/null`.
+          gsub("\n", '').split(':').last
   $?.exitstatus == 0 ? hash : "(htpasswd not available, or version doesn't support bcrypt)"
 end
 
